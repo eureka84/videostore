@@ -20,6 +20,6 @@ public class Rental
 
 	int frequentFlyersPoints()
 	{
-		return movie.frequentFlyerPoints(daysRented);
+		return movie.price.frequentFlyerPoints(daysRented);
 	}
 }

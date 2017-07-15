@@ -32,4 +32,14 @@ break;
 }
     return result;
   }
+
+  int frequentFlyerPoints(int daysRented)
+  {
+    int frequentRenterPoints = 1;
+
+    if (getCode() == Movie.NEW_RELEASE
+&& daysRented > 1)
+frequentRenterPoints++;
+    return frequentRenterPoints;
+  }
 }

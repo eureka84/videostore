@@ -18,16 +18,6 @@ public class Movie
 		return title;
 	}
 
-	int frequentFlyerPoints(int daysRented)
-	{
-		int frequentRenterPoints = 1;
-
-		if (price.getCode() == NEW_RELEASE
-        && daysRented > 1)
-      frequentRenterPoints++;
-		return frequentRenterPoints;
-	}
-
 	public double amount(int daysRented)
 	{
 		return price.amount(daysRented);
