@@ -1,11 +1,7 @@
 package price;
 
-public class ChildrenPrice extends Price
+public class ChildrenPrice implements Price
 {
-  public ChildrenPrice()
-  {
-    super();
-  }
 
   @Override
   public int frequentFlyerPoints(int daysRented)
@@ -18,9 +14,9 @@ public class ChildrenPrice extends Price
   public double amount(int daysRented)
   {
     double result =0;
-result += 1.5;
-if (daysRented > 3)
-result += (daysRented - 3) * 1.5;
+    result += 1.5;
+    if (daysRented > 3)
+        result += (daysRented - 3) * 1.5;
     return result;
   }
 }

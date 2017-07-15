@@ -1,9 +1,9 @@
 package price;
 
-public abstract class Price
+public interface Price
 {
 
-  public abstract double amount(int daysRented);
+  double amount(int daysRented);
 
-  public abstract int frequentFlyerPoints(int daysRented);
+  int frequentFlyerPoints(int daysRented);
 }

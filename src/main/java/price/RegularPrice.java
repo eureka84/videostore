@@ -1,12 +1,7 @@
 package price;
 
-public class RegularPrice extends Price
+public class RegularPrice implements Price
 {
-  public RegularPrice()
-  {
-    super();
-  }
-
   @Override
   public int frequentFlyerPoints(int daysRented)
   {
@@ -16,10 +11,10 @@ public class RegularPrice extends Price
   @Override
   public double amount(int daysRented)
   {
-    double result =0;
-result += 2;
-if (daysRented > 2)
-result += (daysRented - 2) * 1.5;
+    double result = 0;
+    result += 2;
+    if (daysRented > 2)
+      result += (daysRented - 2) * 1.5;
     return result;
   }
 }
