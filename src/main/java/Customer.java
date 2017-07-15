@@ -62,7 +62,7 @@ public class Customer
 		while (rentals.hasMoreElements ()) {
 			Rental 		rental = (Rental)rentals.nextElement ();
 
-			frequentRenterPoints += rental.frequentFlyerPoints();
+			frequentRenterPoints += rental.frequentFlyersPoints();
 
 		}
 		return frequentRenterPoints;

@@ -46,4 +46,14 @@ public class Movie
     }
 		return result;
 	}
+
+	int frequentFlyerPoints(int daysRented)
+	{
+		int frequentRenterPoints = 1;
+
+		if (priceCode == NEW_RELEASE
+        && daysRented > 1)
+      frequentRenterPoints++;
+		return frequentRenterPoints;
+	}
 }
