@@ -28,7 +28,7 @@ public class Customer
 		while (rentals.hasMoreElements ()) {
 			Rental 		rental = (Rental)rentals.nextElement ();
 
-			frequentRenterPoints += frequentFlyerPoints(rental);
+			frequentRenterPoints += rental.frequentFlyerPoints();
 				
 			result += "\t" + rental.getMovie ().getTitle () + "\t"
 								+ String.valueOf (rental.amount()) + "\n";
@@ -41,16 +41,6 @@ public class Customer
 		
 		
 		return result;
-	}
-
-	private int frequentFlyerPoints(Rental rental)
-	{
-		int frequentRenterPoints = 1;
-
-		if (rental.getMovie ().getPriceCode () == Movie.NEW_RELEASE
-        && rental.getDaysRented () > 1)
-      frequentRenterPoints++;
-		return frequentRenterPoints;
 	}
 
 }
