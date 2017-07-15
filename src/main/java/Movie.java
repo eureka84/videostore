@@ -22,4 +22,9 @@ public class Movie
 	{
 		return price.amount(daysRented);
 	}
+
+	int frequentFlyer(int daysRented)
+	{
+		return price.frequentFlyerPoints(daysRented);
+	}
 }
