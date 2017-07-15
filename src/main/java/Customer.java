@@ -30,7 +30,7 @@ public class Customer
 			Rental 		rental = (Rental)rentals.nextElement ();
 			
 			// determines the amount for rental line
-			thisAmount = rental.amountFor();
+			thisAmount = rental.amount();
 
 			frequentRenterPoints++;
 			

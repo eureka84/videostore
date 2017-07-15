@@ -19,7 +19,7 @@ public class Rental
 	
 
 
-	double amountFor()
+	double amount()
 	{
 		double result =0;
 		switch (getMovie ().getPriceCode ()) {
