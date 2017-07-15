@@ -25,5 +25,25 @@ public class Movie
 	public String getTitle () {
 		return title;
 	}
-	
+
+	double amount(int daysRented, Rental rental)
+	{
+		double result =0;
+		switch (getPriceCode ()) {
+      case REGULAR:
+        result += 2;
+        if (rental.getDaysRented () > 2)
+          result += (daysRented - 2) * 1.5;
+        break;
+      case NEW_RELEASE:
+        result += rental.getDaysRented () * 3;
+        break;
+      case CHILDRENS:
+        result += 1.5;
+        if (rental.getDaysRented () > 3)
+          result += (rental.getDaysRented () - 3) * 1.5;
+        break;
+    }
+		return result;
+	}
 }
