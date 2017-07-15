@@ -9,10 +9,6 @@ public class Rental
 		this.daysRented = daysRented;
 	}
 
-  public Movie getMovie () {
-		return movie;
-	}
-
 	double amount()
 	{
 		return movie.amount(this.daysRented);
@@ -23,4 +19,8 @@ public class Rental
 		return movie.frequentFlyer(this.daysRented);
 	}
 
+	String movieTitle()
+  {
+		return movie.getTitle ();
+  }
 }

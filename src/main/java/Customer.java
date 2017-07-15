@@ -1,6 +1,5 @@
-
-import java.util.Vector;
 import java.util.Enumeration;
+import java.util.Vector;
 
 public class Customer 
 {
@@ -26,7 +25,7 @@ public class Customer
 		while (rentals.hasMoreElements ()) {
 			Rental 		rental = (Rental)rentals.nextElement ();
 
-			result += "\t" + rental.getMovie ().getTitle () + "\t"
+			result += "\t" + rental.movieTitle() + "\t"
 								+ String.valueOf (rental.amount()) + "\n";
 		}
 
@@ -45,7 +44,7 @@ public class Customer
 		while (rentals1.hasMoreElements ()) {
 			Rental 		rental = (Rental) rentals1.nextElement ();
 
-			result += "\t" + rental.getMovie ().getTitle () + "\t"
+			result += "\t" + rental.movieTitle() + "\t"
 				+ String.valueOf (rental.amount()) + "<br>";
 		}
 
@@ -55,7 +54,7 @@ public class Customer
 		return result;
 	}
 
-	private int totalFrequentFliersPoints()
+  private int totalFrequentFliersPoints()
 	{
 		int frequentRenterPoints =0;
 		Enumeration rentals 				= this.rentals.elements ();
