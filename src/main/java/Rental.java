@@ -26,4 +26,9 @@ public class Rental
       frequentRenterPoints++;
 		return frequentRenterPoints;
 	}
+
+	double amount()
+	{
+		return movie.amount(daysRented);
+	}
 }

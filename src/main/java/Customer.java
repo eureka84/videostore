@@ -27,7 +27,7 @@ public class Customer
 			Rental 		rental = (Rental)rentals.nextElement ();
 
 			result += "\t" + rental.getMovie ().getTitle () + "\t"
-								+ String.valueOf (rental.movie.amount(rental.getDaysRented())) + "\n";
+								+ String.valueOf (rental.amount()) + "\n";
 		}
 
 		result += "You owed " + String.valueOf (totalAmount()) + "\n";
@@ -59,7 +59,7 @@ public class Customer
 			Rental 		rental = (Rental)rentals.nextElement ();
 
 
-			totalAmount += rental.movie.amount(rental.getDaysRented());
+			totalAmount += rental.amount();
 
 		}
 		return totalAmount;
@@ -74,7 +74,7 @@ public class Customer
 			Rental 		rental = (Rental) rentals1.nextElement ();
 
 			result += "\t" + rental.getMovie ().getTitle () + "\t"
-								+ String.valueOf (rental.movie.amount(rental.getDaysRented())) + "<br>";
+								+ String.valueOf (rental.amount()) + "<br>";
 		}
 
 		result += "You owed " + String.valueOf (totalAmount()) + "<br>";
