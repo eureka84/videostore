@@ -12,10 +12,10 @@ public class Price
     return code;
   }
 
-  double amount(int daysRented, Movie movie)
+  double amount(int daysRented)
   {
     double result =0;
-    switch (movie.getPriceCode ()) {
+    switch (code) {
 case Movie.REGULAR:
 result += 2;
 if (daysRented > 2)

@@ -15,7 +15,7 @@ public class Rental
 
 	double amount()
 	{
-		return movie.price.amount(daysRented, movie);
+		return movie.price.amount(daysRented);
 	}
 
 	int frequentFlyersPoints()
