@@ -37,6 +37,24 @@ public class Customer
 		return result;
 	}
 
+	public String htmlStatement()
+	{
+		Enumeration rentals1 = this.rentals.elements ();
+		String 				result 					= "Rental Record for " + getName () + "<br>";
+
+		while (rentals1.hasMoreElements ()) {
+			Rental 		rental = (Rental) rentals1.nextElement ();
+
+			result += "\t" + rental.getMovie ().getTitle () + "\t"
+				+ String.valueOf (rental.amount()) + "<br>";
+		}
+
+		result += "You owed " + String.valueOf (totalAmount()) + "<br>";
+		result += "You earned " + String.valueOf (totalFrequentFliersPoints()) + " frequent renter points<br>";
+
+		return result;
+	}
+
 	private int totalFrequentFliersPoints()
 	{
 		int frequentRenterPoints =0;
@@ -65,21 +83,5 @@ public class Customer
 		return totalAmount;
 	}
 
-	public String htmlStatement()
-	{
-		Enumeration rentals1 = this.rentals.elements ();
-		String 				result 					= "Rental Record for " + getName () + "<br>";
 
-		while (rentals1.hasMoreElements ()) {
-			Rental 		rental = (Rental) rentals1.nextElement ();
-
-			result += "\t" + rental.getMovie ().getTitle () + "\t"
-								+ String.valueOf (rental.amount()) + "<br>";
-		}
-
-		result += "You owed " + String.valueOf (totalAmount()) + "<br>";
-		result += "You earned " + String.valueOf (totalFrequentFliersPoints()) + " frequent renter points<br>";
-
-		return result;
-	}
 }
