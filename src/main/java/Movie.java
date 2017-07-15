@@ -35,4 +35,9 @@ public class Movie
       frequentRenterPoints++;
 		return frequentRenterPoints;
 	}
+
+	double amount(int daysRented)
+	{
+		return price.amount(daysRented);
+	}
 }
