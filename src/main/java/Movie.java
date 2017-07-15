@@ -7,19 +7,19 @@ public class Movie
 	public static final int NEW_RELEASE = 1;
 	
 	private String title;
-	private int priceCode;
-	
-	public Movie (String title, int priceCode) {
+  private Price price;
+
+  public Movie (String title, int priceCode) {
 		this.title 		= title;
-		this.priceCode 	= priceCode;
+		this.setPriceCode(priceCode);
 	}
 	
 	public int getPriceCode () {
-		return priceCode;
+		return price.getCode();
 	}
 	
 	public void setPriceCode (int code) {
-		priceCode = code;
+    price = new Price(code);
 	}
 	
 	public String getTitle () {
@@ -51,7 +51,7 @@ public class Movie
 	{
 		int frequentRenterPoints = 1;
 
-		if (priceCode == NEW_RELEASE
+		if (getPriceCode() == NEW_RELEASE
         && daysRented > 1)
       frequentRenterPoints++;
 		return frequentRenterPoints;
