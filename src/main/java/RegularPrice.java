@@ -4,4 +4,10 @@ public class RegularPrice extends Price
   {
     super(Movie.REGULAR);
   }
+
+  @Override
+  int frequentFlyerPoints(int daysRented)
+  {
+    return  1;
+  }
 }

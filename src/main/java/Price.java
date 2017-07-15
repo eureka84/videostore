@@ -1,6 +1,6 @@
-public class Price
+public abstract class Price
 {
-  private final int code;
+  protected final int code;
 
   public Price(int code)
   {
@@ -33,13 +33,5 @@ break;
     return result;
   }
 
-  int frequentFlyerPoints(int daysRented)
-  {
-    int frequentRenterPoints = 1;
-
-    if (code == Movie.NEW_RELEASE
-&& daysRented > 1)
-frequentRenterPoints++;
-    return frequentRenterPoints;
-  }
+  abstract int frequentFlyerPoints(int daysRented);
 }
