@@ -20,8 +20,6 @@ public class Customer
 	}
 	
 	public String statement () {
-
-
 		Enumeration 		rentals 				= this.rentals.elements ();
 		String 				result 					= "Rental Record for " + getName () + "\n";
 		
@@ -42,9 +40,9 @@ public class Customer
 	private int totalFrequentFliersPoints()
 	{
 		int frequentRenterPoints =0;
-		Enumeration rentals2 				= this.rentals.elements ();
-		while (rentals2.hasMoreElements ()) {
-			Rental 		rental = (Rental)rentals2.nextElement ();
+		Enumeration rentals 				= this.rentals.elements ();
+		while (rentals.hasMoreElements ()) {
+			Rental 		rental = (Rental)rentals.nextElement ();
 
 			frequentRenterPoints += rental.frequentFlyerPoints();
 
