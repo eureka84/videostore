@@ -1,3 +1,5 @@
+package price;
+
 public class NewReleasePrice extends Price
 {
   public NewReleasePrice()
@@ -6,7 +8,7 @@ public class NewReleasePrice extends Price
   }
 
   @Override
-  int frequentFlyerPoints(int daysRented)
+  public int frequentFlyerPoints(int daysRented)
   {
     int frequentRenterPoints = 1;
 
@@ -16,7 +18,7 @@ frequentRenterPoints++;
   }
 
   @Override
-  double amount(int daysRented)
+  public double amount(int daysRented)
   {
     double result =0;
 result += daysRented * 3;

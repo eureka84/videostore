@@ -1,4 +1,4 @@
-
+import price.Price;
 
 public class Movie
 {

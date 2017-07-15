@@ -1,6 +1,9 @@
 
 
 import junit.framework.*;
+import price.ChildrenPrice;
+import price.NewReleasePrice;
+import price.RegularPrice;
 
 public class VideoStoreTest extends TestCase
 {
