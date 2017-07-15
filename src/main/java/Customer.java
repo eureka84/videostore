@@ -28,8 +28,6 @@ public class Customer
 		while (rentals.hasMoreElements ()) {
 			Rental 		rental = (Rental)rentals.nextElement ();
 			
-			// determines the amount for rental line
-
 			frequentRenterPoints++;
 			
 			if (rental.getMovie ().getPriceCode () == Movie.NEW_RELEASE
