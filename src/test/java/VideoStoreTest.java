@@ -1,27 +1,21 @@
-import junit.framework.TestCase;
 import org.junit.Assert;
+import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
 
-public class VideoStoreTest extends TestCase
+public class VideoStoreTest
 {
-	public VideoStoreTest (String name) {
-		super (name);
-	}
+	private Statement statement = new Statement("Fred");
 
-	private Statement statement;
-
-	protected void setUp ()  {
-		statement = new Statement("Fred");
-	}
-	
-	public void testSingleNewReleaseStatement () {
+	@Test
+	public void totalsFor_SingleNewReleaseStatement() {
 		statement.addRental (new Rental (aNewReleaseMovie(), 3));
 		statement.create();
 		assertTotalAmountAndFrequentFliersPoints(9d, 2);
 	}
 
-	public void testDualNewReleaseStatement () {
+	@Test
+	public void totalsFor_DualNewReleaseStatement () {
 		statement.addRental (new Rental (aNewReleaseMovie(), 3));
 		statement.addRental (new Rental (aNewReleaseMovie(), 3));
 
@@ -30,24 +24,26 @@ public class VideoStoreTest extends TestCase
 		assertTotalAmountAndFrequentFliersPoints(18d, 4);
 	}
 
-	public void testSingleChildrensStatement () {
+	@Test
+	public void totalsFor_SingleChildrensStatement () {
 		statement.addRental (new Rental (aChildrenMovie(), 3));
 		statement.create();
 
 		assertTotalAmountAndFrequentFliersPoints(1.5, 1);
 	}
 
-	public void testMultipleRegularStatement () {
+	@Test
+	public void outputFor_MultipleRegularStatement () {
 		statement.addRental (new Rental (aRegularMovie("Plan 9 from Outer Space"), 1));
 		statement.addRental (new Rental (aRegularMovie("8 1/2"), 2));
 		statement.addRental (new Rental (aRegularMovie("Eraserhead"), 3));
 
-		assertEquals ("Rental Record for Fred\n" +
+		Assert.assertThat(statement.create(),is("Rental Record for Fred\n" +
 			"\tPlan 9 from Outer Space\t2.0\n" +
 			"\t8 1/2\t2.0\n" +
 			"\tEraserhead\t3.5\n" +
 			"You owed 7.5\n" +
-			"You earned 3 frequent renter points\n", statement.create());
+			"You earned 3 frequent renter points\n") );
 	}
 
 	private Movie aRegularMovie(String title)
