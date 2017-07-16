@@ -22,10 +22,10 @@ public class Statement
 
 		double totalAmount = calculateTotalAmount();
 		int frequentRenterPoints = frequentFlierPoints();
-		return rentalsStatements() + statementFooter(totalAmount, frequentRenterPoints);
+		return rentalsStatement() + footerWithTotalsStatement(totalAmount, frequentRenterPoints);
 	}
 
-	private String statementFooter(double totalAmount, int frequentRenterPoints)
+	private String footerWithTotalsStatement(double totalAmount, int frequentRenterPoints)
 	{
 		String result="";
 		result += "You owed " + String.valueOf (totalAmount) + "\n";
@@ -50,12 +50,12 @@ public class Statement
 		return resultAmount;
 	}
 
-	private String rentalsStatements()
+	private String rentalsStatement()
 	{
 		String 				result 					= "Rental Record for " + getName () + "\n";
-		Enumeration rentals2 				= this.rentals.elements ();
-		while (rentals2.hasMoreElements ()) {
-			Rental 		rental = (Rental)rentals2.nextElement ();
+		Enumeration rentals 				= this.rentals.elements ();
+		while (rentals.hasMoreElements ()) {
+			Rental 		rental = (Rental)rentals.nextElement ();
 
 			result += "\t" + rental.getMovie ().getTitle () + "\t"
 				+ String.valueOf (rental.amount()) + "\n";
