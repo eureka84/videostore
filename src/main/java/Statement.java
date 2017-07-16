@@ -1,13 +1,12 @@
-
-import java.util.Vector;
 import java.util.Enumeration;
+import java.util.Vector;
 
-public class Customer 
+public class Statement
 {
 	private String name;
 	private Vector rentals = new Vector ();
 
-	public Customer (String name) {
+	public Statement(String name) {
 		this.name = name;
 	}
 	
