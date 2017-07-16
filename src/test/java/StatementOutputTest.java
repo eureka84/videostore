@@ -24,7 +24,7 @@ public class StatementOutputTest
 
 	private Movie aRegularMovie(String title)
 	{
-		return new Movie (title, Movie.REGULAR);
+		return new RegularMovie (title);
 	}
 
 }

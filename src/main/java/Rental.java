@@ -22,4 +22,8 @@ public class Rental
 		return movie.amountfor(daysRented);
 	}
 
+	int moviePriceCode()
+  {
+		return movie.getPriceCode();
+  }
 }

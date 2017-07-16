@@ -14,7 +14,7 @@ public class RentalsFrequentFlyerCalculator implements FrequentFlyerCalculator
       Rental rental = (Rental) rentals1.nextElement();
       frequentRenterPoints++;
 
-      if (rental.getMovie().getPriceCode() == Movie.NEW_RELEASE
+      if (rental.moviePriceCode() == Movie.NEW_RELEASE
         && rental.getDaysRented() > 1)
       {
         frequentRenterPoints++;
@@ -23,4 +23,5 @@ public class RentalsFrequentFlyerCalculator implements FrequentFlyerCalculator
 
     return frequentRenterPoints;
   }
+
 }

@@ -41,12 +41,12 @@ public class FrequentFlyerCalculatorTest
 
   private Movie aNewReleaseMovie()
   {
-    return new Movie ("The Cell", Movie.NEW_RELEASE);
+    return new NewReleaseMovie ("The Cell");
   }
 
 
   private Movie aChildrenMovie()
   {
-    return new Movie ("The Tigger Movie", Movie.CHILDRENS);
+    return new ChildrenMovie ("The Tigger Movie");
   }
 }

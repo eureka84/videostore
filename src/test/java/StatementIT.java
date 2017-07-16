@@ -25,7 +25,7 @@ public class StatementIT
 
 	private Movie aRegularMovie(String title)
 	{
-		return new Movie (title, Movie.REGULAR);
+		return new RegularMovie (title);
 	}
 
 }
