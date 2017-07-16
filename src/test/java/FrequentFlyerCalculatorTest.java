@@ -5,7 +5,7 @@ import java.util.Vector;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class frequentFlyerCalculatorTest
+public class FrequentFlyerCalculatorTest
 {
 
   @Test
