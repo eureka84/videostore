@@ -6,6 +6,9 @@ public class Statement
 	private String name;
 	private Vector rentals = new Vector ();
 
+	private final TotalAmountCalculator totalAmountCalculator = new TotalAmountCalculator();
+	private final FrequentFlyerCalculator frequentFlyerCalculator = new FrequentFlyerCalculator();
+
 	public Statement(String name) {
 		this.name = name;
 	}
@@ -20,8 +23,8 @@ public class Statement
 	
 	public String create() {
 
-		double totalAmount = new TotalAmountCalculator(this.rentals).total();
-		int frequentRenterPoints = new FrequentFlyerCalculator(this.rentals).total();
+		double totalAmount = totalAmountCalculator.total(this.rentals);
+		int frequentRenterPoints = frequentFlyerCalculator.total(this.rentals);
 
 		return header() + footerWithTotals(totalAmount, frequentRenterPoints);
 	}

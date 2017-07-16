@@ -3,21 +3,15 @@ import java.util.Vector;
 
 public class TotalAmountCalculator
 {
-  private final Vector rentals;
 
-  public TotalAmountCalculator(Vector rentals)
-  {
-    this.rentals = rentals;
-  }
-
-  private double calculateTotalAmount()
+  public double total(Vector rentals)
   {
     double resultAmount = 0;
-    Enumeration rentals 				= this.rentals.elements ();
+    Enumeration rentals1 = rentals.elements();
 
-    while (rentals.hasMoreElements ()) {
+    while (rentals1.hasMoreElements ()) {
       double 		thisAmount = 0;
-      Rental 		rental = (Rental)rentals.nextElement ();
+      Rental 		rental = (Rental) rentals1.nextElement ();
 
       thisAmount = rental.amount();
 
@@ -25,10 +19,5 @@ public class TotalAmountCalculator
 
     }
     return resultAmount;
-  }
-
-  public double total()
-  {
-    return calculateTotalAmount();
   }
 }

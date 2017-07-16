@@ -15,7 +15,7 @@ public class TotalAmountCalculatorTest
     Vector<Rental> rentals = new Vector<>();
     rentals.add(new Rental (aNewReleaseMovie(), 3));
 
-    double total = new TotalAmountCalculator(rentals).total();
+    double total = new TotalAmountCalculator().total(rentals);
 
     Assert.assertThat(total,is(9d));
   }
@@ -27,7 +27,7 @@ public class TotalAmountCalculatorTest
     rentals.add(new Rental (aNewReleaseMovie(), 3));
     rentals.add(new Rental (aNewReleaseMovie(), 3));
 
-    double total = new TotalAmountCalculator(rentals).total();
+    double total = new TotalAmountCalculator().total(rentals);
 
     Assert.assertThat(total,is(18d));
   }
@@ -38,7 +38,7 @@ public class TotalAmountCalculatorTest
     Vector<Rental> rentals = new Vector<>();
     rentals.add(new Rental (aChildrenMovie(), 3));
 
-    double total = new TotalAmountCalculator(rentals).total();
+    double total = new TotalAmountCalculator().total(rentals);
 
     Assert.assertThat(total,is(1.5d));
   }

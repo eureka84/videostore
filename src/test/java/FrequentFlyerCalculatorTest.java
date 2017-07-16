@@ -14,7 +14,7 @@ public class FrequentFlyerCalculatorTest
     Vector<Rental> rentals = new Vector<>();
     rentals.add(new Rental (aNewReleaseMovie(), 3));
 
-    int total = new FrequentFlyerCalculator(rentals).total();
+    int total = new FrequentFlyerCalculator().total(rentals);
     assertThat(total, is(2));
   }
   @Test
@@ -24,7 +24,7 @@ public class FrequentFlyerCalculatorTest
     rentals.add(new Rental (aNewReleaseMovie(), 3));
     rentals.add(new Rental (aNewReleaseMovie(), 3));
 
-    int total = new FrequentFlyerCalculator(rentals).total();
+    int total = new FrequentFlyerCalculator().total(rentals);
     assertThat(total, is(4));
   }
 
@@ -34,7 +34,7 @@ public class FrequentFlyerCalculatorTest
     Vector<Rental> rentals = new Vector<>();
     rentals.add(new Rental (aChildrenMovie(), 3));
 
-    int total = new FrequentFlyerCalculator(rentals).total();
+    int total = new FrequentFlyerCalculator().total(rentals);
     assertThat(total, is(1));
   }
 

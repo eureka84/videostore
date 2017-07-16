@@ -3,18 +3,15 @@ import java.util.Vector;
 
 public class FrequentFlyerCalculator
 {
-  private final Vector rentals;
-
-  public FrequentFlyerCalculator(Vector rentals)
+  public FrequentFlyerCalculator()
   {
 
-    this.rentals = rentals;
   }
 
-  public int total()
+  public int total(Vector rentals)
   {
     int frequentRenterPoints = 0;
-    Enumeration rentals1 = this.rentals.elements();
+    Enumeration rentals1 = rentals.elements();
     while (rentals1.hasMoreElements())
     {
       Rental rental = (Rental) rentals1.nextElement();
