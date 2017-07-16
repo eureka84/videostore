@@ -10,8 +10,7 @@ public class StatementIT
 	@Test
 	public void outputFor_MultipleRegularStatement () {
 
-		Statement statement = new Statement("Fred", new RentalsTotalAmountCalculator(),
-																								new RentalsFrequentFlyerCalculator());
+		Statement statement = new Statement("Fred", new RentalsTotalAmountCalculator(),new RentalsFrequentFlyerCalculator());
 
 		statement.addRental (new Rental (aRegularMovie("Plan 9 from Outer Space"), 1));
 		statement.addRental (new Rental (aRegularMovie("8 1/2"), 2));
