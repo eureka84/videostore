@@ -5,6 +5,7 @@ public class Statement
 {
 	private String name;
 	private Vector rentals = new Vector ();
+	private double totalAmount;
 
 	public Statement(String name) {
 		this.name = name;
@@ -18,8 +19,8 @@ public class Statement
 		return name;
 	}
 	
-	public String statement () {
-		double 				totalAmount 			= 0;
+	public String create() {
+		totalAmount = 0;
 		int					frequentRenterPoints 	= 0;
 		Enumeration 		rentals 				= this.rentals.elements ();
 		String 				result 					= "Rental Record for " + getName () + "\n";
@@ -63,6 +64,9 @@ public class Statement
 		
 		return result;
 	}
-	
 
+	public double totalAmount()
+	{
+		return totalAmount;
+	}
 }
