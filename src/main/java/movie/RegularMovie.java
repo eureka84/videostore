@@ -18,4 +18,10 @@ public class RegularMovie extends Movie
     }
     return result;
   }
+
+  @Override
+  public int totalFreqFliersPoints(int daysRented)
+  {
+    return 1;
+  }
 }

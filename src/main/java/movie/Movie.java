@@ -27,4 +27,6 @@ public abstract class Movie
 	}
 
 	public abstract double amountfor(int daysRented);
+
+	public abstract int totalFreqFliersPoints(int daysRented);
 }

@@ -12,7 +12,7 @@ public class RentalsFrequentFlyerCalculator implements FrequentFlyerCalculator
     while (rentals1.hasMoreElements())
     {
       Rental rental = (Rental) rentals1.nextElement();
-      frequentRenterPoints += rental.freqPointFor();
+      frequentRenterPoints += rental.movie.totalFreqFliersPoints(rental.getDaysRented());
     }
 
     return frequentRenterPoints;

@@ -15,7 +15,7 @@ public class Rental
 		return movie;
 	}
 	
-	private Movie movie;
+	Movie movie;
 	private int daysRented;
 
 	double amount()
@@ -23,19 +23,4 @@ public class Rental
 		return movie.amountfor(daysRented);
 	}
 
-	int moviePriceCode()
-  {
-		return movie.getPriceCode();
-  }
-
-	int freqPointFor()
-  {
-    int result =1;
-    if (moviePriceCode() == Movie.NEW_RELEASE
-      && getDaysRented() > 1)
-    {
-      result++;
-    }
-    return result;
-  }
 }

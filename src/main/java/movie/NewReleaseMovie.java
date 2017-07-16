@@ -14,4 +14,15 @@ public class NewReleaseMovie extends Movie
     result += daysRented * 3;
     return result;
   }
+
+  @Override
+  public int totalFreqFliersPoints(int daysRented)
+  {
+    int result = 1;
+    if (daysRented > 1)
+    {
+      result++;
+    }
+    return result;
+  }
 }
