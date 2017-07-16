@@ -34,6 +34,8 @@ public class VideoStoreTest
 
 	@Test
 	public void outputFor_MultipleRegularStatement () {
+
+		Statement statement = new Statement("Fred");
 		statement.addRental (new Rental (aRegularMovie("Plan 9 from Outer Space"), 1));
 		statement.addRental (new Rental (aRegularMovie("8 1/2"), 2));
 		statement.addRental (new Rental (aRegularMovie("Eraserhead"), 3));
