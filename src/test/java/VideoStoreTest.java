@@ -5,32 +5,6 @@ import static org.junit.Assert.assertThat;
 
 public class VideoStoreTest
 {
-	private Statement statement = new Statement("any");
-
-	@Test
-	public void freqFliersPointsFor_SingleNewReleaseStatement() {
-		statement.addRental (new Rental (aNewReleaseMovie(), 3));
-		statement.create();
-		assertThat(statement.frequentFliersPoints(), is(2));
-	}
-
-	@Test
-	public void freqFliersPointsFor_DualNewReleaseStatement () {
-		statement.addRental (new Rental (aNewReleaseMovie(), 3));
-		statement.addRental (new Rental (aNewReleaseMovie(), 3));
-
-		statement.create();
-
-		assertThat(statement.frequentFliersPoints(), is(4));
-	}
-
-	@Test
-	public void freqFliersPointsFor_SingleChildrensStatement () {
-		statement.addRental (new Rental (aChildrenMovie(), 3));
-		statement.create();
-
-		assertThat(statement.frequentFliersPoints(), is(1));
-	}
 
 	@Test
 	public void outputFor_MultipleRegularStatement () {

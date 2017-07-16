@@ -21,7 +21,8 @@ public class Statement
 	public String create() {
 
 		double totalAmount = new TotalAmountCalculator(this.rentals).total();
-		int frequentRenterPoints = frequentFlierPoints();
+		int frequentRenterPoints = new FrequentFlyerCalculator(this.rentals).total();
+
 		return rentalsStatement() + footerWithTotalsStatement(totalAmount, frequentRenterPoints);
 	}
 
@@ -32,8 +33,6 @@ public class Statement
 		result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points\n";
 		return result;
 	}
-
-
 
 	private String rentalsStatement()
 	{
@@ -47,32 +46,6 @@ public class Statement
 
 		}
 		return result;
-	}
-
-	private int frequentFlierPoints()
-	{
-		int frequentRenterPoints = 0;
-		Enumeration rentals 				= this.rentals.elements ();
-		while (rentals.hasMoreElements ()) {
-			Rental 		rental = (Rental)rentals.nextElement ();
-			frequentRenterPoints++;
-
-			if (rental.getMovie ().getPriceCode () == Movie.NEW_RELEASE
-					&& rental.getDaysRented () > 1)
-				frequentRenterPoints++;
-		}
-
-		return frequentRenterPoints;
-	}
-
-	public double totalAmount()
-	{
-		return new TotalAmountCalculator(this.rentals).total();
-	}
-
-	public int frequentFliersPoints()
-	{
-   return frequentFlierPoints();
 	}
 
 }
