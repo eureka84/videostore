@@ -13,15 +13,14 @@ public class Rental
 	public int getDaysRented () {
 		return daysRented;
 	}
-	
-	public Movie getMovie () {
-		return movie;
-	}
-	
 
 	double amount()
 	{
 		return movie.amountfor(daysRented);
 	}
 
+	String movieTitle()
+	{
+		return movie.getTitle ();
+	}
 }

@@ -49,7 +49,7 @@ public class Statement
 		while (rentals.hasMoreElements ()) {
 			Rental 		rental = (Rental) rentals.nextElement ();
 
-			statementHeader += "\t" + rental.getMovie ().getTitle () + "\t"
+			statementHeader += "\t" + rental.movieTitle() + "\t"
 				+ String.valueOf (rental.amount()) + "\n";
 
 		}
