@@ -1,5 +1,4 @@
 import junit.framework.TestCase;
-import org.hamcrest.Matcher;
 import org.junit.Assert;
 
 import static org.hamcrest.core.Is.is;
@@ -17,7 +16,7 @@ public class VideoStoreTest extends TestCase
 	public void testSingleNewReleaseStatement () {
 		statement.addRental (new Rental (new Movie ("The Cell", Movie.NEW_RELEASE), 3));
 		statement.create();
-		assertTotalAmountAndFrequentFliersPoints(is(9d), is(2));
+		assertTotalAmountAndFrequentFliersPoints(9d, 2);
 	}
 
 	public void testDualNewReleaseStatement () {
@@ -26,14 +25,14 @@ public class VideoStoreTest extends TestCase
 
 		statement.create();
 
-		assertTotalAmountAndFrequentFliersPoints(is(18d), is(4));
+		assertTotalAmountAndFrequentFliersPoints(18d, 4);
 	}
 
 	public void testSingleChildrensStatement () {
 		statement.addRental (new Rental (new Movie ("The Tigger Movie", Movie.CHILDRENS), 3));
 		statement.create();
 
-		assertTotalAmountAndFrequentFliersPoints(is(1.5d), is(1));
+		assertTotalAmountAndFrequentFliersPoints(1.5, 1);
 	}
 
 	public void testMultipleRegularStatement () {
@@ -51,10 +50,9 @@ public class VideoStoreTest extends TestCase
 
 	private Statement statement;
 
-	private void assertTotalAmountAndFrequentFliersPoints(Matcher<Double> matcher,
-		Matcher<Integer> matcher2)
+	private void assertTotalAmountAndFrequentFliersPoints(double totalAmount,int frequentFliersPoints)
 	{
-		Assert.assertThat(statement.totalAmount(), matcher);
-		Assert.assertThat(statement.frequentFliersPoints(), matcher2);
+		Assert.assertThat(statement.totalAmount(),is(totalAmount));
+		Assert.assertThat(statement.frequentFliersPoints(), is(frequentFliersPoints));
 	}
 }
