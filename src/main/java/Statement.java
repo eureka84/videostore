@@ -28,32 +28,17 @@ public class Statement
 		
 		while (rentals.hasMoreElements ()) {
 			double 		thisAmount = 0;
-			Rental 		each = (Rental)rentals.nextElement ();
-			
-			// determines the amount for each line
-			switch (each.getMovie ().getPriceCode ()) {
-				case Movie.REGULAR:
-					thisAmount += 2;
-					if (each.getDaysRented () > 2)
-						thisAmount += (each.getDaysRented () - 2) * 1.5;
-					break;
-				case Movie.NEW_RELEASE:
-					thisAmount += each.getDaysRented () * 3;
-					break;
-				case Movie.CHILDRENS:
-					thisAmount += 1.5;
-					if (each.getDaysRented () > 3)
-						thisAmount += (each.getDaysRented () - 3) * 1.5;
-					break;
-			}
-			
+			Rental 		rental = (Rental)rentals.nextElement ();
+
+			thisAmount = amountFor(rental);
+
 			frequentRenterPoints++;
 			
-			if (each.getMovie ().getPriceCode () == Movie.NEW_RELEASE 
-					&& each.getDaysRented () > 1)
+			if (rental.getMovie ().getPriceCode () == Movie.NEW_RELEASE
+					&& rental.getDaysRented () > 1)
 				frequentRenterPoints++;
 				
-			result += "\t" + each.getMovie ().getTitle () + "\t"
+			result += "\t" + rental.getMovie ().getTitle () + "\t"
 								+ String.valueOf (thisAmount) + "\n";
 			totalAmount += thisAmount;
 				
@@ -64,6 +49,28 @@ public class Statement
 		
 		
 		return result;
+	}
+
+	private double amountFor(Rental each)
+	{
+		double thisAmount =0;
+		// determines the amount for each line
+		switch (each.getMovie ().getPriceCode ()) {
+      case Movie.REGULAR:
+        thisAmount += 2;
+        if (each.getDaysRented () > 2)
+          thisAmount += (each.getDaysRented () - 2) * 1.5;
+        break;
+      case Movie.NEW_RELEASE:
+        thisAmount += each.getDaysRented () * 3;
+        break;
+      case Movie.CHILDRENS:
+        thisAmount += 1.5;
+        if (each.getDaysRented () > 3)
+          thisAmount += (each.getDaysRented () - 3) * 1.5;
+        break;
+    }
+		return thisAmount;
 	}
 
 	public double totalAmount()
