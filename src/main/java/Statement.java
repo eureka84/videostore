@@ -27,10 +27,7 @@ public class Statement
 		totalAmount = calculateTotalAmount();
 		frequentRenterPoints = frequentFlierPoints();
 
-		String result = rentalsStatements() + statementFooter(this.totalAmount, this.frequentRenterPoints);
-		
-		
-		return result;
+		return rentalsStatements() + statementFooter(this.totalAmount, this.frequentRenterPoints);
 	}
 
 	private String statementFooter(double totalAmount, int frequentRenterPoints)
