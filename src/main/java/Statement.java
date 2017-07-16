@@ -5,8 +5,6 @@ public class Statement
 {
 	private String name;
 	private Vector rentals = new Vector ();
-	private double totalAmount;
-	private int frequentRenterPoints;
 
 	public Statement(String name) {
 		this.name = name;
@@ -21,13 +19,10 @@ public class Statement
 	}
 	
 	public String create() {
-		totalAmount = 0;
-		frequentRenterPoints = 0;
 
-		totalAmount = calculateTotalAmount();
-		frequentRenterPoints = frequentFlierPoints();
-
-		return rentalsStatements() + statementFooter(this.totalAmount, this.frequentRenterPoints);
+		double totalAmount = calculateTotalAmount();
+		int frequentRenterPoints = frequentFlierPoints();
+		return rentalsStatements() + statementFooter(totalAmount, frequentRenterPoints);
 	}
 
 	private String statementFooter(double totalAmount, int frequentRenterPoints)
@@ -87,11 +82,11 @@ public class Statement
 
 	public double totalAmount()
 	{
-		return totalAmount;
+		return calculateTotalAmount();
 	}
 
 	public int frequentFliersPoints()
 	{
-   return frequentRenterPoints;
+   return frequentFlierPoints();
 	}
 }
