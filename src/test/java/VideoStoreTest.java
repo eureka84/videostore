@@ -1,6 +1,5 @@
 import junit.framework.TestCase;
 import org.junit.Assert;
-import org.junit.Ignore;
 
 import static org.hamcrest.core.Is.is;
 
@@ -18,26 +17,25 @@ public class VideoStoreTest extends TestCase
 		statement.addRental (new Rental (new Movie ("The Cell", Movie.NEW_RELEASE), 3));
 		statement.create();
 		Assert.assertThat(statement.totalAmount(),is(9d));
+		Assert.assertThat(statement.frequentFliersPoints(),is(2));
 	}
 
-	@Ignore
 	public void testDualNewReleaseStatement () {
 		statement.addRental (new Rental (new Movie ("The Cell", Movie.NEW_RELEASE), 3));
 		statement.addRental (new Rental (new Movie ("The Tigger Movie", Movie.NEW_RELEASE), 3));
-		assertEquals ("Rental Record for Fred\n" +
-									"\tThe Cell\t9.0\n" +
-									"\tThe Tigger Movie\t9.0\n" +
-									"You owed 18.0\n" +
-									"You earned 4 frequent renter points\n", statement.create());
+
+		statement.create();
+
+		Assert.assertThat(statement.totalAmount(),is(18d));
+		Assert.assertThat(statement.frequentFliersPoints(),is(4));
 	}
 
-	@Ignore
 	public void testSingleChildrensStatement () {
 		statement.addRental (new Rental (new Movie ("The Tigger Movie", Movie.CHILDRENS), 3));
-		assertEquals ("Rental Record for Fred\n" +
-									"\tThe Tigger Movie\t1.5\n" +
-									"You owed 1.5\n" +
-									"You earned 1 frequent renter points\n", statement.create());
+		statement.create();
+
+		Assert.assertThat(statement.totalAmount(),is(1.5d));
+		Assert.assertThat(statement.frequentFliersPoints(),is(1));
 	}
 	
 	public void testMultipleRegularStatement () {
