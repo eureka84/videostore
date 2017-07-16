@@ -1,3 +1,5 @@
+import movie.Movie;
+import movie.RegularMovie;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
@@ -24,7 +26,7 @@ public class StatementOutputTest
 
 	private Movie aRegularMovie(String title)
 	{
-		return new RegularMovie (title);
+		return new RegularMovie(title);
 	}
 
 }

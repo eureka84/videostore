@@ -1,4 +1,4 @@
-
+package movie;
 
 public abstract class Movie
 {
@@ -26,5 +26,5 @@ public abstract class Movie
 		return title;
 	}
 
-	abstract double amountfor(int daysRented);
+	public abstract double amountfor(int daysRented);
 }

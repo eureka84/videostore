@@ -1,3 +1,5 @@
+package movie;
+
 public class ChildrenMovie extends Movie
 {
   public ChildrenMovie(String title)
@@ -6,7 +8,7 @@ public class ChildrenMovie extends Movie
   }
 
   @Override
-  double amountfor(int daysRented)
+  public double amountfor(int daysRented)
   {
     double result = 0;
     result += 1.5;

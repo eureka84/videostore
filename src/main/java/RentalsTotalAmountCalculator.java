@@ -10,12 +10,9 @@ public class RentalsTotalAmountCalculator implements TotalAmountCalculator
     Enumeration rentals1 = rentals.elements();
 
     while (rentals1.hasMoreElements ()) {
-      double 		thisAmount = 0;
       Rental 		rental = (Rental) rentals1.nextElement ();
 
-      thisAmount = rental.amount();
-
-      resultAmount += thisAmount;
+      resultAmount += rental.amount();
 
     }
     return resultAmount;

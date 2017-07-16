@@ -1,3 +1,6 @@
+import movie.ChildrenMovie;
+import movie.Movie;
+import movie.NewReleaseMovie;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -46,12 +49,12 @@ public class RentalsTotalAmountCalculatorTest
 
   private Movie aNewReleaseMovie()
   {
-    return new NewReleaseMovie ("The Cell");
+    return new NewReleaseMovie("The Cell");
   }
 
 
   private Movie aChildrenMovie()
   {
-    return new ChildrenMovie ("The Tigger Movie");
+    return new ChildrenMovie("The Tigger Movie");
   }
 }

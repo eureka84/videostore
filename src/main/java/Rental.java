@@ -1,3 +1,4 @@
+import movie.Movie;
 
 public class Rental
 {
