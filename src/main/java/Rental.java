@@ -2,6 +2,9 @@ import movie.Movie;
 
 public class Rental
 {
+	Movie movie;
+	private int daysRented;
+
 	public Rental (Movie movie, int daysRented) {
 		this.movie 		= movie;
 		this.daysRented = daysRented;
@@ -15,8 +18,6 @@ public class Rental
 		return movie;
 	}
 	
-	Movie movie;
-	private int daysRented;
 
 	double amount()
 	{
