@@ -5,7 +5,7 @@ import static org.hamcrest.core.Is.is;
 
 public class VideoStoreTest
 {
-	private Statement statement = new Statement("Fred");
+	private Statement statement = new Statement("any");
 
 	@Test
 	public void totalsFor_SingleNewReleaseStatement() {
