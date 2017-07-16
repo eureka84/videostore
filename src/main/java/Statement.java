@@ -23,29 +23,29 @@ public class Statement
 		double totalAmount = new TotalAmountCalculator(this.rentals).total();
 		int frequentRenterPoints = new FrequentFlyerCalculator(this.rentals).total();
 
-		return rentalsStatement() + footerWithTotalsStatement(totalAmount, frequentRenterPoints);
+		return header() + footerWithTotals(totalAmount, frequentRenterPoints);
 	}
 
-	private String footerWithTotalsStatement(double totalAmount, int frequentRenterPoints)
+	private String footerWithTotals(double totalAmount, int frequentRenterPoints)
 	{
-		String result="";
-		result += "You owed " + String.valueOf (totalAmount) + "\n";
-		result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points\n";
-		return result;
+		String statementFooter ="";
+		statementFooter += "You owed " + String.valueOf (totalAmount) + "\n";
+		statementFooter += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points\n";
+		return statementFooter;
 	}
 
-	private String rentalsStatement()
+	private String header()
 	{
-		String 				result 					= "Rental Record for " + getName () + "\n";
-		Enumeration rentals 				= this.rentals.elements ();
+		String 				statementHeader 					= "Rental Record for " + getName () + "\n";
+		Enumeration rentals = this.rentals.elements ();
 		while (rentals.hasMoreElements ()) {
-			Rental 		rental = (Rental)rentals.nextElement ();
+			Rental 		rental = (Rental) rentals.nextElement ();
 
-			result += "\t" + rental.getMovie ().getTitle () + "\t"
+			statementHeader += "\t" + rental.getMovie ().getTitle () + "\t"
 				+ String.valueOf (rental.amount()) + "\n";
 
 		}
-		return result;
+		return statementHeader;
 	}
 
 }
