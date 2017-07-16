@@ -1,6 +1,9 @@
 import java.util.Enumeration;
 import java.util.Vector;
 
+import static java.lang.String.format;
+import static java.lang.String.valueOf;
+
 public class Statement
 {
 	private String name;
@@ -21,39 +24,37 @@ public class Statement
 	public void addRental (Rental rental) {
 		rentals.addElement (rental);
 	}
-	
-	public String getName () {
-		return name;
-	}
-	
+
 	public String create() {
 
 		double totalAmount = totalAmountCalculator.total(this.rentals);
 		int frequentRenterPoints = frequentFlyerCalculator.total(this.rentals);
 
-		return header() + footerWithTotals(totalAmount, frequentRenterPoints);
+		return rentalsStatement() + footerWithTotals(totalAmount, frequentRenterPoints);
 	}
 
 	private String footerWithTotals(double totalAmount, int frequentRenterPoints)
 	{
-		String statementFooter ="";
-		statementFooter += "You owed " + String.valueOf (totalAmount) + "\n";
-		statementFooter += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points\n";
-		return statementFooter;
+		return format("You owed %s\nYou earned %s frequent renter points\n", valueOf(totalAmount),
+      valueOf(frequentRenterPoints));
 	}
 
-	private String header()
+	private String rentalsStatement()
 	{
-		String 				statementHeader 					= "Rental Record for " + getName () + "\n";
+		String 	statementHeader = "Rental Record for " + name + "\n";
 		Enumeration rentals = this.rentals.elements ();
 		while (rentals.hasMoreElements ()) {
 			Rental 		rental = (Rental) rentals.nextElement ();
-
-			statementHeader += "\t" + rental.movieTitle() + "\t"
-				+ String.valueOf (rental.amount()) + "\n";
+			statementHeader += rentalStatementLine(rental);
 
 		}
 		return statementHeader;
+	}
+
+	private String rentalStatementLine(Rental rental)
+	{
+		return "\t" + rental.movieTitle() + "\t"
+      + valueOf (rental.amount()) + "\n";
 	}
 
 }
