@@ -6,11 +6,16 @@ public class Statement
 	private String name;
 	private Vector rentals = new Vector ();
 
-	private final TotalAmountCalculator totalAmountCalculator = new TotalAmountCalculator();
-	private final FrequentFlyerCalculator frequentFlyerCalculator = new FrequentFlyerCalculator();
+	private TotalAmountCalculator totalAmountCalculator;
+	private FrequentFlyerCalculator frequentFlyerCalculator;
 
-	public Statement(String name) {
+	public Statement(String name,
+		TotalAmountCalculator totalAmountCalculator,
+		FrequentFlyerCalculator frequentFlyerCalculator)
+	{
 		this.name = name;
+		this.totalAmountCalculator = totalAmountCalculator;
+		this.frequentFlyerCalculator = frequentFlyerCalculator;
 	}
 	
 	public void addRental (Rental rental) {

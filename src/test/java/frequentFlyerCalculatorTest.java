@@ -1,46 +1,41 @@
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Vector;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
-public class TotalAmountCalculatorTest
+public class frequentFlyerCalculatorTest
 {
 
-
   @Test
-  public void totalsFor_SingleNewReleaseStatement() {
+  public void freqFliersPointsFor_SingleNewReleaseStatement() {
 
     Vector<Rental> rentals = new Vector<>();
     rentals.add(new Rental (aNewReleaseMovie(), 3));
 
-    double total = new TotalAmountCalculator().total(rentals);
-
-    Assert.assertThat(total,is(9d));
+    int total = new RentalsFrequentFlyerCalculator().total(rentals);
+    assertThat(total, is(2));
   }
-
   @Test
-  public void totalsFor_DualNewReleaseStatement() throws Exception
-  {
+  public void freqFliersPointsFor_DualNewReleaseStatement() {
+
     Vector<Rental> rentals = new Vector<>();
     rentals.add(new Rental (aNewReleaseMovie(), 3));
     rentals.add(new Rental (aNewReleaseMovie(), 3));
 
-    double total = new TotalAmountCalculator().total(rentals);
-
-    Assert.assertThat(total,is(18d));
+    int total = new RentalsFrequentFlyerCalculator().total(rentals);
+    assertThat(total, is(4));
   }
 
   @Test
-  public void totalsFor_SingleChildrensStatement() throws Exception
-  {
+  public void freqFliersPointsFor_SingleChildrensStatement() {
+
     Vector<Rental> rentals = new Vector<>();
     rentals.add(new Rental (aChildrenMovie(), 3));
 
-    double total = new TotalAmountCalculator().total(rentals);
-
-    Assert.assertThat(total,is(1.5d));
+    int total = new RentalsFrequentFlyerCalculator().total(rentals);
+    assertThat(total, is(1));
   }
 
 

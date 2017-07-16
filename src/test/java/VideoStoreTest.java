@@ -5,11 +5,11 @@ import static org.junit.Assert.assertThat;
 
 public class VideoStoreTest
 {
-
 	@Test
 	public void outputFor_MultipleRegularStatement () {
 
-		Statement statement = new Statement("Fred");
+		Statement statement = new Statement("Fred", rentals -> 7.5,rentals -> 3);
+
 		statement.addRental (new Rental (aRegularMovie("Plan 9 from Outer Space"), 1));
 		statement.addRental (new Rental (aRegularMovie("8 1/2"), 2));
 		statement.addRental (new Rental (aRegularMovie("Eraserhead"), 3));
@@ -27,13 +27,4 @@ public class VideoStoreTest
 		return new Movie (title, Movie.REGULAR);
 	}
 
-	private Movie aNewReleaseMovie()
-	{
-		return new Movie ("The Cell", Movie.NEW_RELEASE);
-	}
-
-	private Movie aChildrenMovie()
-	{
-		return new Movie ("The Tigger Movie", Movie.CHILDRENS);
-	}
 }
