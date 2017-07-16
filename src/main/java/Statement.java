@@ -20,7 +20,7 @@ public class Statement
 	
 	public String create() {
 
-		double totalAmount = calculateTotalAmount();
+		double totalAmount = new TotalAmountCalculator(this.rentals).total();
 		int frequentRenterPoints = frequentFlierPoints();
 		return rentalsStatement() + footerWithTotalsStatement(totalAmount, frequentRenterPoints);
 	}
@@ -33,22 +33,7 @@ public class Statement
 		return result;
 	}
 
-	private double calculateTotalAmount()
-	{
-		double resultAmount = 0;
-		Enumeration rentals 				= this.rentals.elements ();
 
-		while (rentals.hasMoreElements ()) {
-			double 		thisAmount = 0;
-			Rental 		rental = (Rental)rentals.nextElement ();
-
-			thisAmount = rental.amount();
-
-			resultAmount += thisAmount;
-
-		}
-		return resultAmount;
-	}
 
 	private String rentalsStatement()
 	{
@@ -82,11 +67,12 @@ public class Statement
 
 	public double totalAmount()
 	{
-		return calculateTotalAmount();
+		return new TotalAmountCalculator(this.rentals).total();
 	}
 
 	public int frequentFliersPoints()
 	{
    return frequentFlierPoints();
 	}
+
 }

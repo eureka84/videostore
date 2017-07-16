@@ -1,35 +1,35 @@
-import org.junit.Assert;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 public class VideoStoreTest
 {
 	private Statement statement = new Statement("any");
 
 	@Test
-	public void totalsFor_SingleNewReleaseStatement() {
+	public void freqFliersPointsFor_SingleNewReleaseStatement() {
 		statement.addRental (new Rental (aNewReleaseMovie(), 3));
 		statement.create();
-		assertTotalAmountAndFrequentFliersPoints(9d, 2);
+		assertThat(statement.frequentFliersPoints(), is(2));
 	}
 
 	@Test
-	public void totalsFor_DualNewReleaseStatement () {
+	public void freqFliersPointsFor_DualNewReleaseStatement () {
 		statement.addRental (new Rental (aNewReleaseMovie(), 3));
 		statement.addRental (new Rental (aNewReleaseMovie(), 3));
 
 		statement.create();
 
-		assertTotalAmountAndFrequentFliersPoints(18d, 4);
+		assertThat(statement.frequentFliersPoints(), is(4));
 	}
 
 	@Test
-	public void totalsFor_SingleChildrensStatement () {
+	public void freqFliersPointsFor_SingleChildrensStatement () {
 		statement.addRental (new Rental (aChildrenMovie(), 3));
 		statement.create();
 
-		assertTotalAmountAndFrequentFliersPoints(1.5, 1);
+		assertThat(statement.frequentFliersPoints(), is(1));
 	}
 
 	@Test
@@ -40,7 +40,7 @@ public class VideoStoreTest
 		statement.addRental (new Rental (aRegularMovie("8 1/2"), 2));
 		statement.addRental (new Rental (aRegularMovie("Eraserhead"), 3));
 
-		Assert.assertThat(statement.create(),is("Rental Record for Fred\n" +
+		assertThat(statement.create(),is("Rental Record for Fred\n" +
 			"\tPlan 9 from Outer Space\t2.0\n" +
 			"\t8 1/2\t2.0\n" +
 			"\tEraserhead\t3.5\n" +
@@ -52,13 +52,6 @@ public class VideoStoreTest
 	{
 		return new Movie (title, Movie.REGULAR);
 	}
-
-	private void assertTotalAmountAndFrequentFliersPoints(double totalAmount,int frequentFliersPoints)
-	{
-		Assert.assertThat(statement.totalAmount(),is(totalAmount));
-		Assert.assertThat(statement.frequentFliersPoints(), is(frequentFliersPoints));
-	}
-
 
 	private Movie aNewReleaseMovie()
 	{
